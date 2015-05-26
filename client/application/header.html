@@ -1,0 +1,121 @@
+<template name="header">
+
+
+   <nav class="white" style="height:75px;" role="navigation">
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="/" class="brand-logo"><img  src="/logo_superangels.png" style="height:75px;"></a>
+      <ul id="slide-out" class="side-nav">    
+        {{#if tem_menu }}
+          {{#if currentUser}}
+            {{>menu_logado}}            
+          {{else}}     
+            {{>menu_deslogado}}
+          {{/if}}
+        {{/if}}
+      </ul>      
+      <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+
+    </div>
+</nav>
+<!-- Modal Structure -->
+  <div id="modalLogin" class="modal">
+    <div class="modal-content">
+        <div class="row  teal white-text">
+          <div class="col s6 left-align"><h5>Login</h5>
+          </div>
+          <div class="col s6 right-align ">
+            <h6 class=" modal-action modal-close" id="fecharModalLogin">x Fechar</h6>
+          </div>
+        </div>
+        <div class="login-form login-password-form">
+            <div id="login-username-label-and-input">
+              <label class="teal-text"  id="login-username-label" for="login-username">
+              Email
+              </label>
+              <input class="teal lighten-5 teal-text" id="login-username" type="text">
+            </div>
+            <div id="login-password-label-and-input">
+              <label class="teal-text"  id="login-password-label" for="login-password">
+                Senha
+              </label>
+              <input class="teal lighten-5 teal-text" id="login-password" type="password">
+            </div>
+
+            <button class="btn waves-effect waves-light" id="login-buttons-password" type="submit" name="action">Logar
+              <i class="mdi-content-send right"></i>
+            </button>
+
+        </div> 
+    </div>    
+  </div>
+      
+          
+</template>
+
+<template name="menu_logado">
+
+{{#if rwindow.screen 'lte' 'medium'}}
+    <li class="black-text">
+        <img src="{{filepickerIdToImageUrl currentUser.profile.id_foto_contato h=30 w=30 align='faces' fit='crop'}}" class="circle" />{{truncate currentUser.profile.name 15}}    
+   </li>
+   <li><a href="/profle">Profile</a></li>    
+
+  {{#if isInRole 'ADMIN'}}      
+      <li><a href="/dashboard">Dashboard</a></li>
+      <li><a href="/lista_solic">Todas Solicitações</a></li>        
+      <li><a href="/lista_solic_url">Url para orçamento</a></li>        
+  {{/if}}
+  {{#if isInRole 'FORNECEDOR'}}
+      <li><a href="/lista_solic_recebidas">Solicitações Recebidas</a></li>  
+  {{/if}}    
+  {{#if isInRole 'CLIENTE'}}
+      <li><a href="/lista_solic_cliente">Minhas solicitações</a></li>
+      <li><a href="/cad_solic">Solicitar Orçamento</a></li>
+  {{/if}}
+  <li><a href="/logout" id="logout" data-action="logout" >Log Out</a></li>    
+ {{else}}
+ 
+    {{#if isInRole 'ADMIN'}}      
+        <li><a href="/dashboard">Dashboard</a></li>
+        <li><a href="/lista_solic">Todas Solicitações</a></li>        
+        <li><a href="/lista_solic_url">Url para orçamento</a></li>        
+    {{/if}}
+    {{#if isInRole 'FORNECEDOR'}}
+        <li><a href="/lista_solic_recebidas">Solicitações Recebidas</a></li>  
+    {{/if}}    
+    {{#if isInRole 'CLIENTE'}}
+        <li><a href="/lista_solic_cliente">Minhas solicitações</a></li>
+        <li><a href="/cad_solic">Solicitar Orçamento</a></li>
+    {{/if}}
+   <li>
+       <a id="" class='dropdown-button' data-beloworigin="true" href='#' data-activates='dropdown1'>{{truncate currentUser.profile.name 15}}
+        <img src="{{filepickerIdToImageUrl currentUser.profile.id_foto_contato h=30 w=30 align='faces' fit='crop'}}" class="circle" />
+      </a>
+   </li>
+    <!-- Dropdown Structure -->
+    <ul id='dropdown1' class='dropdown-content'>
+
+      <li class="divider"></li>
+      <li><a href="/profle">Profile</a></li>    
+      <li><a href="/logout" id="logout" data-action="logout">Log Out</a></li>           
+    </ul>
+{{/if}}
+
+</template>
+<template name="menu_deslogado">
+
+{{#if rwindow.screen 'lte' 'medium'}}
+          <!--li><a id="abrirModalLogin" class="modal-trigger" href="#modalLogin">Entrar</a></li-->
+          <li><a href="/solic_convite">Solicitar Convite</a></li>   
+          <li><a href="/cad_fornecedor">Registrar Cuidador</a></li>          
+          <!--li><a href="/cad_solic">Solicitar Orçamento</a></li--> 
+       
+
+{{else}}
+          <li><a href="/cad_fornecedor">Registrar Cuidador</a></li>          
+          <li><a href="/solic_convite">Solicitar Convite</a></li>  
+          <!--li><a href="/cad_usuario">Registrar</a></li>          
+          <li><a id="abrirModalLogin" class="modal-trigger" href="#modalLogin">Entrar</a></li-->
+{{/if}}
+
+</template>

@@ -1,0 +1,87 @@
+<template name="ver_orcamento_cliente">
+	<div class="card"> 
+		
+		<div class="card-image">
+			<img  src="/res/Kids-Birthday-Party_Slide.jpg">
+			<div class="card-title white-text teal"><b>Orçamento</b></div>
+				
+		</div>
+		<div class="card-content">
+			{{#with obj_solic_e_orcamento }} 
+			<div class="row">
+				<div class="col s12 m6"	>						
+					<ul class="collection">
+					<li class="collection-item">
+				      <h5>Dados da Solicitação</h5>
+				      (Data Solicitação: {{formatTime data_solic}} )
+				    </li>				
+				      <li class="collection-item teal white-text">
+				      Festa 
+				      </li>	
+				      <li class="collection-item"><b>Quantidade de Convidados:</b> {{festa_convidados}}</li>
+				      <li class="collection-item"><b>Data da Festa:</b> {{formatTime festa_data "DD/MM/YYYY"}} {{festa_hora}}</li>
+				      <li class="collection-item"><p class="title"><b>Detalhes da festa:</b></p>
+						{{festa_detalhes}}
+				      </li>
+
+				      {{#if tem_servicos }}
+						<li class="collection-item teal white-text">Serviços Procurados</li>
+					  {{/if}}				      
+						{{#each servicos_procurados}}
+							<li class="collection-item"><h5>{{tipo}}</h5>
+					       	{{#if check tipo "LOCAL"}}
+							<p class="title" ><b>Bairros desejados:</b></p>						
+				      			{{#each bairros }}	
+				      				{{this}}<br>
+				      			{{/each}}
+					       	{{/if}}
+					        <p class="title"><b>Observações:</b></p>{{observacoes}}         
+					        
+						</li>
+						{{/each}}   
+
+
+				    </ul>
+				</div>
+				<div class="col s12 m6"	>
+					<form id="formOrca" >	
+
+
+						<ul class="collection">
+			
+
+							<li class="collection-item">
+						      <h5>Orçamento</h5>
+						      (Data Orçamento: {{formatTime orcamento.data_cadastro}} )
+						    </li>
+							<li class="collection-item teal white-text">
+						      Fornecedor 
+						      </li>	
+						      <li class="collection-item"><b>Nome:</b> {{fornecedor.profile.name}}</li>
+							  <li class="collection-item"><b>Email:</b> {{ fornecedor.profile.email}}</li>
+							  <li class="collection-item"><b>Telefone:</b> {{ fornecedor.profile.telefone}}</li>	
+							{{#each servicos_procurados}}
+							<li class="collection-item teal white-text">{{tipo}}</li>
+							<input  id="orc_tipos" name="orc_tipos[]" type="hidden"    value="{{tipo}}">
+
+					       	{{#if check tipo "LOCAL"}}
+					       		 <li class="collection-item"><b>Duração:</b> {{../orcamento.duracao}} horas</li>	
+					       	{{/if}}
+							<li class="collection-item"><b>Valor:</b> R$ {{../orcamento.valor}} </li>	
+							<li class="collection-item">
+							<p class="title"><b>Detalhes:</b></p>{{../orcamento.detalhes}}         
+					        </li>
+					       
+
+						{{/each}}   
+
+						</ul>
+							
+						
+					</form>	
+				</div>
+			</div> 
+			{{/with}}
+		</div>	 
+	</div>		
+</template>

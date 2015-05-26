@@ -1,0 +1,49 @@
+<template name="lista_clientes">
+
+		<div class="card"> 
+			
+
+			
+			<div class="card-content">	
+
+				<div class="collection">
+					<div class="collection-item">
+				      <h5>Clientes</h5>
+				    </div>
+	
+
+					<table class="striped">
+				        <thead>
+				          <tr>
+				              <th data-field="data">Data Cadastro</th>
+				              <th data-field="nome">Nome</th>		
+				              <th data-field="email">Email</th>
+				              <th data-field="telefone">Telefone</th>
+				          </tr>
+				        </thead>
+
+				        <tbody>
+				        {{#each getListaClientes}}
+				          <tr>
+				            <td class="top-valign">{{ formatTime createdAt }}</td>
+				            <td>{{ profile.name }}</td>
+							<td>{{ profile.email }}</td>
+							<td>{{ profile.telefone }}</td>
+
+				            <!--td><a  href="/ver_solic_deslogado/{{_id}}/?id_cliente={{ id_usuario }}"><span class="btn green">VER TODOS</span></a>
+				            	{{#each arr_servicos }}
+				      			<a  href="/ver_solic_deslogado/{{../_id}}/?tipo={{this}}&id_cliente={{ ../id_usuario }}"><span class="btn">{{this}}</span></a>
+				      			{{/each}}
+				      		</td-->				            
+				          </tr>
+				         {{/each}}
+						 </tbody>
+					</table>
+
+					
+
+			      
+			    </div>
+			</div>	
+		</div>
+</template>			

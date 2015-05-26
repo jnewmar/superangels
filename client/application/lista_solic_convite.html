@@ -1,0 +1,59 @@
+<template name="lista_solic_convite">
+
+		<div class="card"> 
+			
+
+			
+			<div class="card-content">	
+
+				<div class="collection">
+					<div class="collection-item">
+				      <h5>Todas as Solicitações</h5>
+				    </div>
+	
+
+					<table class="striped">
+				        <thead>
+				          <tr>
+				              <th data-field="data">Data</th>
+				              <th data-field="data">Contato</th>	
+	<th data-field="data">Sugestão</th>	
+				              <!--th data-field="servicos">Ver solicitação</th>
+				              <th data-field="orcamento ">Ver Orçamentos</th-->
+				          </tr>
+				        </thead>
+
+				        <tbody>
+				        {{#each getListaSolic}}
+				          <tr>
+				            <td class="top-valign">{{ formatTime data_cadastro }}</td>
+				            <td><b>Nome</b>: {{ name }}				            <br>
+				            <b>Email</b>: {{ email }}<br>
+				            <b>Telefone</b>:{{ telefone }}<br>
+				           	<b>CEP</b>: {{ cep }}<br></td>
+				           	<td>{{ sugestao }}</td>
+
+				            <!--td><a  href="/ver_solic_deslogado/{{_id}}/?id_cliente={{ id_usuario }}"><span class="btn green">VER TODOS</span></a>
+				            	{{#each arr_servicos }}
+				      			<a  href="/ver_solic_deslogado/{{../_id}}/?tipo={{this}}&id_cliente={{ ../id_usuario }}"><span class="btn">{{this}}</span></a>
+				      			{{/each}}
+				      		</td>
+				            <td>
+				            	<a  href="/lista_orcamentos_cliente/{{_id}}"><span class="btn green">VER TODOS</span></a>
+				            	{{#each arr_servicos }}
+				      			<a  href="/lista_orcamentos_cliente/{{../_id}}/?tipo={{this}}"><span class="btn">{{this}}</span></a>
+				      			{{/each}}
+
+				            </td-->
+				          </tr>
+				         {{/each}}
+						 </tbody>
+					</table>
+
+					
+
+			      
+			    </div>
+			</div>	
+		</div>
+</template>			

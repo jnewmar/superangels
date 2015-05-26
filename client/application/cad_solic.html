@@ -1,0 +1,492 @@
+<template name="cad_solic">
+
+		<div class="card"> 
+			
+				<div class="card-image">
+				<img  src="/res/Kids-Birthday-Party_Slide.jpg">
+				<div class="card-title white-text teal"><b>Solicite seu orçamento</b></div>
+					
+			</div>
+			<form id="formSolicOrca" class="card-content">				
+				{{#if currentUser}}
+
+				{{else}}
+
+					 <label class="item item-input " >
+					 <label class="teal-text" for="nome_contato">Nome *</label>		
+							<input  class="teal lighten-5 teal-text" id="nome_contato" name="nome_contato" type="text"  required="required" value="{{nome_contato}}">
+							
+					</label>
+					 <label class="item item-input " >		
+					 	<label class="teal-text" for="email_contato">Email de contato *</label>
+							<input  class="teal lighten-5 teal-text" id="email_contato" name="email_contato" type="text"  required="required" value="{{email_contato}}">
+							
+					</label>	
+					 <label class="item item-input " >		
+					 	<label class="teal-text" for="senha">Senha*</label>
+							<input  class="teal lighten-5 teal-text" id="senha" name="senha" type="password"  required="required" >
+							
+					</label>
+					<label class="item item-input " >		
+					 	<label class="teal-text" for="senha1">Confirmar senha*</label>
+							<input  class="teal lighten-5 teal-text" id="senha1" name="senha1" type="password"  required="required" >
+							
+					</label>					
+					<label class="item item-input " >						
+						<label class="teal-text" for="telefone_contato">Telefone</label>
+							<input  class="teal lighten-5 teal-text" id="telefone_contato" name="telefone_contato" type="text"  value="{{telefone_contato}}">
+							
+					</label>
+					<label class="item item-input " >						
+						<label class="teal-text" for="cep_contato">CEP</label>
+							<input  class="teal lighten-5 teal-text" id="cep_contato" name="cep_contato" type="text"  value="{{cep_contato}}">
+							
+					</label>	
+	
+
+
+					<!--label class="item item-input " >						
+						<label class="teal-text" for="relacao_contato">Relação com o aniversariante (ex. pai,mãe, tio )</label>
+							<input  class="teal lighten-5 teal-text" id="relacao_contato" name="relacao_contato" type="text"  value="{{relacao_contato}}">
+							
+					</label-->
+				{{/if}}	
+
+
+			
+	
+					<!--label class="item item-input " >	
+						<label class="teal-text" for="nome_aniversariante">Nome Aniversariante *</label>
+							<input  class="teal lighten-5 teal-text" id="nome_aniversariante" name="nome_aniversariante" type="text"   required="required" value="{{nome}}">
+							
+					</label>
+					<label class="item item-input " >	
+						<label class="teal-text" for="sexo_aniversariante">Sexo do Aniversariante</label>
+						<select  class="teal lighten-5 teal-text" id="sexo_aniversariante" name="sexo_aniversariante">
+							<option value="" disabled selected></option>
+						  <option value="Masculino" >Masculino</option>
+						  <option value="Feminino" >Feminino</option>
+						</select>
+						
+					</label>
+					<label class="item item-input " >
+							<label class="teal-text" for="data_nasc_aniversariante">Data de Nascimento</label>		
+								<input  class="teal lighten-5 teal-text" id="data_nasc_aniversariante" name="data_nasc_aniversariante"  type="date"   required="required" value="{{data_nasc}}" class="datepicker">
+
+					</label-->										
+				
+
+					
+					
+					<label class="item item-input " >
+						<label class="teal-text" for="festa_convidados" >Quantidade de Convidados</label>
+						<input class="teal lighten-5 teal-text" type="number" id="festa_convidados" name="festa_convidados" min="0" max="1000">
+
+					</label>
+					<label class="item item-input ">
+						<label class="teal-text" for="festa_data" >Data da Festa</label>
+						<input  class="teal lighten-5 teal-text" id="festa_data" name="festa_data" type="date"  required="required" >
+					</label>	
+					<label class="item item-input ">			
+						<label class="teal-text" for="festa_hora">Hora da Festa</label>	
+						<select class="teal lighten-5 teal-text" id="festa_hora" name="festa_hora">
+							<option value="" disabled selected></option>
+								<option value="00:00" >00:00</option>
+								<option value="00:00" >01:00</option>								
+								<option value="00:00" >02:00</option>
+								<option value="00:00" >03:00</option>
+								<option value="00:00" >04:00</option>								
+								<option value="00:00" >05:00</option>
+								<option value="00:00" >06:00</option>
+								<option value="00:00" >07:00</option>								
+								<option value="00:00" >08:00</option>
+								<option value="00:00" >09:00</option>
+								<option value="00:00" >10:00</option>								
+								<option value="00:00" >11:00</option>								
+								<option value="00:00" >12:00</option>
+								<option value="00:00" >13:00</option>
+								<option value="00:00" >14:00</option>								
+								<option value="00:00" >15:00</option>
+								<option value="00:00" >16:00</option>
+								<option value="00:00" >17:00</option>								
+								<option value="00:00" >18:00</option>
+								<option value="00:00" >19:00</option>
+								<option value="00:00" >20:00</option>								
+								<option value="00:00" >21:00</option>								
+								<option value="00:00" >22:00</option>
+								<option value="00:00" >23:00</option>
+								</select>	
+								
+						
+					</label>					
+					<label class="item item-input  ">	
+					<label class="teal-text" for="festa_detalhes">Detalhes da festa</label>			
+					<textarea class="teal lighten-5 teal-text materialize-textarea" id="festa_detalhes" name="festa_detalhes" rows="10" ></textarea>
+				  </label>	
+
+
+					<!--label class="item item-input " >
+						<label class="teal-text" for="procurarLocalFesta">Precisa de um espaço?</label>
+						<select class="teal lighten-5 teal-text" id="procurarLocalFesta" name="procurarLocalFesta" >
+  							<option value="" disabled selected></option>
+						  <option value="sim" >Sim, procuro um espaço.</option>
+						  <option value="nao" >Não, já tenho um espaço.</option>
+						</select>
+						
+					</label>
+
+
+
+					
+					<div class="item item-text-wrap escondido" style="border: 1px solid #ddd;" id="comLocal" >
+						<label class="item item-input " >		
+							<label class="teal-text" for="local_nome">Local da festa</label>
+							<input  class="teal lighten-5 teal-text" id="local_nome" name="local_nome" type="text" placeholder="Ex: Buffet Alcantara , Salão de festas do condominio Saint Germain"   value="{{local_nome}}">
+
+						</label>
+						 <label class="item item-input " >		
+					 			<label class="teal-text" for="local_endereco">Endereço do local</label>
+								<input  class="teal lighten-5 teal-text" id="local_endereco" name="local_endereco" type="text"    value="{{local_endereco}}">
+								
+						</label>	
+						<label class="item item-input " >
+							<label class="teal-text" for="local_bairro">Bairro</label>
+
+							<select class="teal lighten-5 teal-text" id="local_bairro">
+								<option value="" selected></option>
+					
+								<option value="ANÁLIA FRANCO" >ANÁLIA FRANCO</option>
+								<option value="CARRÃO" >CARRÃO</option>
+								<option value="MOOCA" >MOOCA</option>
+								<option value="TATUAPÉ" >TATUAPÉ</option>
+								<option value="VILA ARICANDURA" >VILA ARICANDURA</option>
+								<option value="VILA PRUDENTE" >VILA PRUDENTE</option>
+								<option value="VILA ZELINA" >VILA ZELINA</option>
+					
+								<option value="ÁGUA FRIA" >ÁGUA FRIA</option>
+								<option value="CACHOEIRINHA" >CACHOEIRINHA</option>
+								<option value="CASA VERDE" >CASA VERDE</option>
+								<option value="FREGUESIA DO Ó" >FREGUESIA DO Ó</option>
+								<option value="HORTO FLORESTAL" >HORTO FLORESTAL</option>
+								<option value="IMIRIM" >IMIRIM</option>
+								<option value="JARDIM JAPãO" >JARDIM JAPãO</option>
+								<option value="JARDIM TREMEMBé" >JARDIM TREMEMBé</option>
+								<option value="MANDAQUI" >MANDAQUI</option>
+								<option value="PARADA INGLESA" >PARADA INGLESA</option>
+								<option value="SANTANA" >SANTANA</option>
+								<option value="TUCURUVI" >TUCURUVI</option>
+								<option value="VILA AMáLIA" >VILA AMáLIA</option>
+								<option value="VILA GUILHERME" >VILA GUILHERME</option>
+								<option value="VILA MARIA" >VILA MARIA</option>
+								<option value="VILA MAZZEI - TUCURUVI" >VILA MAZZEI - TUCURUVI</option>
+								<option value="VILA MEDEIROS" >VILA MEDEIROS</option>
+						
+								<option value="ALTO DE PINHEIROS" >ALTO DE PINHEIROS</option>
+								<option value="BUTANTã" >BUTANTã</option>
+								<option value="HIGIENóPOLIS" >HIGIENóPOLIS</option>
+								<option value="JARDIM BONFIGLIOLI" >JARDIM BONFIGLIOLI</option>
+								<option value="JARDINS" >JARDINS</option>
+								<option value="LAPA" >LAPA</option>
+								<option value="PARAíSO" >PARAíSO</option>
+								<option value="PERDIZES" >PERDIZES</option>
+								<option value="PINHEIROS" >PINHEIROS</option>
+								<option value="PIRITUBA" >PIRITUBA</option>
+								<option value="POMPéIA" >POMPéIA</option>
+								<option value="SANTA CECíLIA" >SANTA CECíLIA</option>
+								<option value="SUMAREZINHO" >SUMAREZINHO</option>
+								<option value="VILA JAGUARA" >VILA JAGUARA</option>
+								<option value="VILA LEOPOLDINA" >VILA LEOPOLDINA</option>
+								<option value="VILA MADALENA" >VILA MADALENA</option>
+								<option value="VILA ROMANA" >VILA ROMANA</option>
+
+
+						
+								<option value="ACLIMAçãO" >ACLIMAçãO</option>
+								<option value="BOSQUE DA SAúDE" >BOSQUE DA SAúDE</option>
+								<option value="BROOKLIN" >BROOKLIN</option>
+								<option value="CAMPO BELO" >CAMPO BELO</option>
+								<option value="CHáCARA SANTO ANTôNIO" >CHáCARA SANTO ANTôNIO</option>
+								<option value="CIDADE JARDIM" >CIDADE JARDIM</option>
+								<option value="GUARAPIRANGA" >GUARAPIRANGA</option>
+								<option value="INTERLAGOS" >INTERLAGOS</option>
+								<option value="IPIRANGA" >IPIRANGA</option>
+								<option value="ITAIM" >ITAIM</option>
+								<option value="JARDIM DO GOLFE" >JARDIM DO GOLFE</option>
+								<option value="JARDIM MARAJOARA" >JARDIM MARAJOARA</option>
+								<option value="JARDIM PAULISTA" >JARDIM PAULISTA</option>
+								<option value="MOEMA" >MOEMA</option>
+								<option value="MORUMBI" >MORUMBI</option>
+								<option value="PARAíSO" >PARAíSO</option>
+								<option value="SANTO AMARO" >SANTO AMARO</option>
+								<option value="SAúDE" >SAúDE</option>
+								<option value="VILA ALEXANDRIA" >VILA ALEXANDRIA</option>
+								<option value="VILA DAS MERCêS" >VILA DAS MERCêS</option>
+								<option value="VILA MARIANA" >VILA MARIANA</option>
+								<option value="VILA MASCOTE" >VILA MASCOTE</option>
+								<option value="VILA MONUMENTO" >VILA MONUMENTO</option>
+								<option value="VILA OLíMPIA" >VILA OLíMPIA</option>
+
+
+							</select>
+						</label-->							
+						<!--label class="item item-input " >						
+								<input  class="teal lighten-5 teal-text" id="local_cep" type="text" placeholder="CEP" value="{{local_cep}}">
+						</label>
+						<label class="item item-input " >						
+								<input   class="teal lighten-5 teal-text" id="local_cidade" type="text" placeholder="Cidade" value="{{local_cidade}}">
+						</label>
+						<label class="item item-input " >
+							<spam class="input-label">
+							  Estado
+							</spam>	
+							<select class="teal lighten-5 teal-text" id="local_estado" name="local_estado">
+								<option value="estado">Selecione o Estado</option> 
+								<option value="ac">Acre</option> 
+								<option value="al">Alagoas</option> 
+								<option value="am">Amazonas</option> 
+								<option value="ap">Amapá</option> 
+								<option value="ba">Bahia</option> 
+								<option value="ce">Ceará</option> 
+								<option value="df">Distrito Federal</option> 
+								<option value="es">Espírito Santo</option> 
+								<option value="go">Goiás</option> 
+								<option value="ma">Maranhão</option> 
+								<option value="mt">Mato Grosso</option> 
+								<option value="ms">Mato Grosso do Sul</option> 
+								<option value="mg">Minas Gerais</option> 
+								<option value="pa">Pará</option> 
+								<option value="pb">Paraíba</option> 
+								<option value="pr">Paraná</option> 
+								<option value="pe">Pernambuco</option> 
+								<option value="pi">Piauí</option> 
+								<option value="rj">Rio de Janeiro</option> 
+								<option value="rn">Rio Grande do Norte</option> 
+								<option value="ro">Rondônia</option> 
+								<option value="rs">Rio Grande do Sul</option> 
+								<option value="rr">Roraima</option> 
+								<option value="sc">Santa Catarina</option> 
+								<option value="se">Sergipe</option> 
+								<option value="sp">São Paulo</option> 
+								<option value="to">Tocantins</option> 
+							</select>					
+							
+						</label-->
+
+					<!--/div-->	
+
+
+					<div class="item item-divider">Serviços</div>
+					<label class="item item-checkbox " >
+						<div class="input-label">
+							  <input type="checkbox" class="filled-in" name="servicos_procurados_local" id="servicos_procurados_local" value="Salgados" > 
+								<label class="teal-text" for="servicos_procurados_local">Espaço</label>
+
+						</div>			
+					<div class="item item-text-wrap escondido" style="border: 1px solid #ddd;" id="semLocal" >
+					<label class="item item-checkbox" >
+						<b>Bairros desejados</b>
+
+						<div class="row">
+						  <div class="col s3  tab-sel" id="tab-1">Zona Norte</div>
+						  <div class="col s3  tab" id="tab-2">Zona Leste</div>
+						  <div class="col s3  tab" id="tab-3">Zona Oeste</div>
+						  <div class="col s3  tab" id="tab-4">Zona Sul</div>
+						</div>
+
+						<div class="row  ativo" style="border: 1px solid #ddd;margin-top:-12px;" id="dieta-1" >	
+							<div class="col s3"> 
+								<input type="checkbox" class="filled-in" name="servicos_procurados_local_bairros" id="servicos_procurados_local_bairros[0]"  value="ÁGUA FRIA" ><label class=".right-align" for="servicos_procurados_local_bairros[0]">ÁGUA FRIA</label>
+								<input type="checkbox" class="filled-in" name="servicos_procurados_local_bairros" id="servicos_procurados_local_bairros[1]"  value="CACHOEIRINHA" ><label class=".right-align" for="servicos_procurados_local_bairros[1]">CACHOEIRINHA</label>
+								<input type="checkbox" class="filled-in" name="servicos_procurados_local_bairros" id="servicos_procurados_local_bairros[2]"  value="CASA VERDE" ><label class=".right-align" for="servicos_procurados_local_bairros[2]">CASA VERDE</label>
+								<input type="checkbox" class="filled-in" name="servicos_procurados_local_bairros" id="servicos_procurados_local_bairros[3]"  value="FREGUESIA DO Ó" ><label class=".right-align" for="servicos_procurados_local_bairros[3]">FREGUESIA DO Ó</label>
+								<input type="checkbox" class="filled-in" name="servicos_procurados_local_bairros" id="servicos_procurados_local_bairros[4]"  value="HORTO FLORESTAL" ><label class=".right-align" for="servicos_procurados_local_bairros[4]">HORTO FLORESTAL</label>
+							</div>
+							<div class="col s3">
+								<input type="checkbox" class="filled-in" name="servicos_procurados_local_bairros" id="servicos_procurados_local_bairros[5]"  value="IMIRIM" ><label class=".right-align" for="servicos_procurados_local_bairros[5]">IMIRIM</label>
+								<input type="checkbox" class="filled-in" name="servicos_procurados_local_bairros" id="servicos_procurados_local_bairros[6]"  value="JARDIM JAPãO" ><label class=".right-align" for="servicos_procurados_local_bairros[6]">JARDIM JAPãO</label>
+								<input type="checkbox" class="filled-in" name="servicos_procurados_local_bairros" id="servicos_procurados_local_bairros[7]"  value="JARDIM TREMEMBé" ><label class=".right-align" for="servicos_procurados_local_bairros[7]">JARDIM TREMEMBé</label>
+								<input type="checkbox" class="filled-in" name="servicos_procurados_local_bairros" id="servicos_procurados_local_bairros[8]"  value="MANDAQUI" ><label class=".right-align" for="servicos_procurados_local_bairros[8]">MANDAQUI</label>
+								<input type="checkbox" class="filled-in" name="servicos_procurados_local_bairros" id="servicos_procurados_local_bairros[9]"  value="PARADA INGLESA" ><label class=".right-align" for="servicos_procurados_local_bairros[9]">PARADA INGLESA</label>
+							</div>
+							<div class="col s3">
+								<input type="checkbox" class="filled-in" name="servicos_procurados_local_bairros" id="servicos_procurados_local_bairros[10]"  value="SANTANA" ><label class=".right-align" for="servicos_procurados_local_bairros[10]">SANTANA</label>
+								<input type="checkbox" class="filled-in" name="servicos_procurados_local_bairros" id="servicos_procurados_local_bairros[11]"  value="TUCURUVI" ><label class=".right-align" for="servicos_procurados_local_bairros[11]">TUCURUVI</label>
+								<input type="checkbox" class="filled-in" name="servicos_procurados_local_bairros" id="servicos_procurados_local_bairros[12]"  value="VILA AMáLIA" ><label class=".right-align" for="servicos_procurados_local_bairros[12]">VILA AMáLIA</label>
+								<input type="checkbox" class="filled-in" name="servicos_procurados_local_bairros" id="servicos_procurados_local_bairros[13]"  value="VILA GUILHERME" ><label class=".right-align" for="servicos_procurados_local_bairros[13]">VILA GUILHERME</label>
+								<input type="checkbox" class="filled-in" name="servicos_procurados_local_bairros" id="servicos_procurados_local_bairros[14]"  value="VILA MARIA" ><label class=".right-align" for="servicos_procurados_local_bairros[14]">VILA MARIA</label>
+							</div>
+							<div class="col s3">
+								<input type="checkbox" class="filled-in" name="servicos_procurados_local_bairros" id="servicos_procurados_local_bairros[15]"  value="VILA MAZZEI - TUCURUVI" ><label class=".right-align" for="servicos_procurados_local_bairros[15]">VILA MAZZEI - TUCURUVI</label>
+								<input type="checkbox" class="filled-in" name="servicos_procurados_local_bairros" id="servicos_procurados_local_bairros[16]"  value="VILA MEDEIROS" ><label class=".right-align" for="servicos_procurados_local_bairros[16]">VILA MEDEIROS</label>
+							</div>
+						</div>
+						<div class="row  escondido" style="border: 1px solid #ddd;margin-top:-12px;" id="dieta-2" >
+							<div class="col s3">
+								<input type="checkbox" class="filled-in" name="servicos_procurados_local_bairros" id="servicos_procurados_local_bairros[17]"  value="ANÁLIA FRANCO" ><label class=".right-align" for="servicos_procurados_local_bairros[17]">ANÁLIA FRANCO</label>
+								
+								<input type="checkbox" class="filled-in" name="servicos_procurados_local_bairros" id="servicos_procurados_local_bairros[19]"  value="MOOCA" ><label class=".right-align" for="servicos_procurados_local_bairros[19]">MOOCA</label>
+
+								<input type="checkbox" class="filled-in" name="servicos_procurados_local_bairros" id="servicos_procurados_local_bairros[21]"  value="VILA ARICANDURA" ><label class=".right-align" for="servicos_procurados_local_bairros[21]">VILA ARICANDURA</label>
+								<input type="checkbox" class="filled-in" name="servicos_procurados_local_bairros" id="servicos_procurados_local_bairros[18]"  value="CARRÃO" ><label class=".right-align" for="servicos_procurados_local_bairros[18]">CARRÃO</label>
+							</div>
+							<div class="col s3">
+								<input type="checkbox" class="filled-in" name="servicos_procurados_local_bairros" id="servicos_procurados_local_bairros[20]"  value="TATUAPÉ" ><label class=".right-align" for="servicos_procurados_local_bairros[20]">TATUAPÉ</label>
+								<input type="checkbox" class="filled-in" name="servicos_procurados_local_bairros" id="servicos_procurados_local_bairros[22]"  value="VILA PRUDENTE" ><label class=".right-align" for="servicos_procurados_local_bairros[22]">VILA PRUDENTE</label>
+								<input type="checkbox" class="filled-in" name="servicos_procurados_local_bairros" id="servicos_procurados_local_bairros[23]"  value="VILA ZELINA" ><label class=".right-align" for="servicos_procurados_local_bairros[23]">VILA ZELINA</label>
+							</div>
+							<div class="col s3">
+							</div>
+							<div class="col s3">
+							</div>							
+						</div>
+						<div class="row  escondido" style="border: 1px solid #ddd;margin-top:-12px;" id="dieta-3" >
+							<div class="col s3">
+								<input type="checkbox" class="filled-in" name="servicos_procurados_local_bairros" id="servicos_procurados_local_bairros[24]"  value="ALTO DE PINHEIROS" ><label class=".right-align" for="servicos_procurados_local_bairros[24]">ALTO DE PINHEIROS</label>
+								<input type="checkbox" class="filled-in" name="servicos_procurados_local_bairros" id="servicos_procurados_local_bairros[25]"  value="BUTANTã" ><label class=".right-align" for="servicos_procurados_local_bairros[25]">BUTANTã</label>
+								<input type="checkbox" class="filled-in" name="servicos_procurados_local_bairros" id="servicos_procurados_local_bairros[26]"  value="HIGIENóPOLIS" ><label class=".right-align" for="servicos_procurados_local_bairros[26]">HIGIENóPOLIS</label>
+								<input type="checkbox" class="filled-in" name="servicos_procurados_local_bairros" id="servicos_procurados_local_bairros[27]"  value="JARDIM BONFIGLIOLI" ><label class=".right-align" for="servicos_procurados_local_bairros[27]">JARDIM BONFIGLIOLI</label>
+								<input type="checkbox" class="filled-in" name="servicos_procurados_local_bairros" id="servicos_procurados_local_bairros[28]"  value="JARDINS" ><label class=".right-align" for="servicos_procurados_local_bairros[28]">JARDINS</label>
+							</div>
+							<div class="col s3">	
+								
+								<input type="checkbox" class="filled-in" name="servicos_procurados_local_bairros" id="servicos_procurados_local_bairros[30]"  value="PARAíSO" ><label class=".right-align" for="servicos_procurados_local_bairros[30]">PARAíSO</label>
+								<input type="checkbox" class="filled-in" name="servicos_procurados_local_bairros" id="servicos_procurados_local_bairros[31]"  value="PERDIZES" ><label class=".right-align" for="servicos_procurados_local_bairros[31]">PERDIZES</label>
+								<input type="checkbox" class="filled-in" name="servicos_procurados_local_bairros" id="servicos_procurados_local_bairros[32]"  value="PINHEIROS" ><label class=".right-align" for="servicos_procurados_local_bairros[32]">PINHEIROS</label>
+								<input type="checkbox" class="filled-in" name="servicos_procurados_local_bairros" id="servicos_procurados_local_bairros[33]"  value="PIRITUBA" ><label class=".right-align" for="servicos_procurados_local_bairros[33]">PIRITUBA</label>
+							
+							</div>
+							<div class="col s3">	
+								<input type="checkbox" class="filled-in" name="servicos_procurados_local_bairros" id="servicos_procurados_local_bairros[34]"  value="POMPéIA" ><label class=".right-align" for="servicos_procurados_local_bairros[34]">POMPéIA</label>
+								<input type="checkbox" class="filled-in" name="servicos_procurados_local_bairros" id="servicos_procurados_local_bairros[35]"  value="SANTA CECíLIA" ><label class=".right-align" for="servicos_procurados_local_bairros[35]">SANTA CECíLIA</label>
+								<input type="checkbox" class="filled-in" name="servicos_procurados_local_bairros" id="servicos_procurados_local_bairros[36]"  value="SUMAREZINHO" ><label class=".right-align" for="servicos_procurados_local_bairros[36]">SUMAREZINHO</label>
+								<input type="checkbox" class="filled-in" name="servicos_procurados_local_bairros" id="servicos_procurados_local_bairros[37]"  value="VILA JAGUARA" ><label class=".right-align" for="servicos_procurados_local_bairros[37]">VILA JAGUARA</label>
+								<input type="checkbox" class="filled-in" name="servicos_procurados_local_bairros" id="servicos_procurados_local_bairros[38]"  value="VILA LEOPOLDINA" ><label class=".right-align" for="servicos_procurados_local_bairros[38]">VILA LEOPOLDINA</label>
+							</div>
+							<div class="col s3">		
+								<input type="checkbox" class="filled-in" name="servicos_procurados_local_bairros" id="servicos_procurados_local_bairros[39]"  value="VILA MADALENA" ><label class=".right-align" for="servicos_procurados_local_bairros[39]">VILA MADALENA</label>
+								<input type="checkbox" class="filled-in" name="servicos_procurados_local_bairros" id="servicos_procurados_local_bairros[40]"  value="VILA ROMANA" ><label class=".right-align" for="servicos_procurados_local_bairros[40]">VILA ROMANA</label>
+								<input type="checkbox" class="filled-in" name="servicos_procurados_local_bairros" id="servicos_procurados_local_bairros[29]"  value="LAPA" ><label class=".right-align" for="servicos_procurados_local_bairros[29]">LAPA</label>
+							</div>
+							
+	
+						</div>
+						<div class="row  escondido" style="border: 1px solid #ddd;margin-top:-12px;" id="dieta-4" >
+							<div class="col s3">
+								<input type="checkbox" class="filled-in" name="servicos_procurados_local_bairros" id="servicos_procurados_local_bairros[41]"  value="ACLIMAçãO" ><label class=".right-align" for="servicos_procurados_local_bairros[41]">ACLIMAçãO</label>
+								<input type="checkbox" class="filled-in" name="servicos_procurados_local_bairros" id="servicos_procurados_local_bairros[42]"  value="BOSQUE DA SAúDE" ><label class=".right-align" for="servicos_procurados_local_bairros[42]">BOSQUE DA SAúDE</label>
+								<input type="checkbox" class="filled-in" name="servicos_procurados_local_bairros" id="servicos_procurados_local_bairros[43]"  value="BROOKLIN" ><label class=".right-align" for="servicos_procurados_local_bairros[43]">BROOKLIN</label>
+								<input type="checkbox" class="filled-in" name="servicos_procurados_local_bairros" id="servicos_procurados_local_bairros[44]"  value="CAMPO BELO" ><label class=".right-align" for="servicos_procurados_local_bairros[44]">CAMPO BELO</label>
+								<input type="checkbox" class="filled-in" name="servicos_procurados_local_bairros" id="servicos_procurados_local_bairros[45]"  value="CHáCARA SANTO ANTôNIO" ><label class=".right-align" for="servicos_procurados_local_bairros[45]">CHáCARA SANTO ANTôNIO</label>
+								<input type="checkbox" class="filled-in" name="servicos_procurados_local_bairros" id="servicos_procurados_local_bairros[50]"  value="ITAIM" ><label class=".right-align" for="servicos_procurados_local_bairros[50]">ITAIM</label>
+							
+								<input type="checkbox" class="filled-in" name="servicos_procurados_local_bairros" id="servicos_procurados_local_bairros[46]"  value="CIDADE JARDIM" ><label class=".right-align" for="servicos_procurados_local_bairros[46]">CIDADE JARDIM</label>
+							</div>
+							<div class="col s3">								
+								<input type="checkbox" class="filled-in" name="servicos_procurados_local_bairros" id="servicos_procurados_local_bairros[47]"  value="GUARAPIRANGA" ><label class=".right-align" for="servicos_procurados_local_bairros[47]">GUARAPIRANGA</label>
+								<input type="checkbox" class="filled-in" name="servicos_procurados_local_bairros" id="servicos_procurados_local_bairros[48]"  value="INTERLAGOS" ><label class=".right-align" for="servicos_procurados_local_bairros[48]">INTERLAGOS</label>
+								<input type="checkbox" class="filled-in" name="servicos_procurados_local_bairros" id="servicos_procurados_local_bairros[49]"  value="IPIRANGA" ><label class=".right-align" for="servicos_procurados_local_bairros[49]">IPIRANGA</label>			
+								<input type="checkbox" class="filled-in" name="servicos_procurados_local_bairros" id="servicos_procurados_local_bairros[51]"  value="JARDIM DO GOLFE" ><label class=".right-align" for="servicos_procurados_local_bairros[51]">JARDIM DO GOLFE</label>
+								<input type="checkbox" class="filled-in" name="servicos_procurados_local_bairros" id="servicos_procurados_local_bairros[52]"  value="JARDIM MARAJOARA" ><label class=".right-align" for="servicos_procurados_local_bairros[52]">JARDIM MARAJOARA</label>									
+								<input type="checkbox" class="filled-in" name="servicos_procurados_local_bairros" id="servicos_procurados_local_bairros[53]"  value="JARDIM PAULISTA" ><label class=".right-align" for="servicos_procurados_local_bairros[53]">JARDIM PAULISTA</label>
+								<input type="checkbox" class="filled-in" name="servicos_procurados_local_bairros" id="servicos_procurados_local_bairros[54]"  value="MOEMA" ><label class=".right-align" for="servicos_procurados_local_bairros[54]">MOEMA</label>
+							</div>
+							<div class="col s3">								
+								<input type="checkbox" class="filled-in" name="servicos_procurados_local_bairros" id="servicos_procurados_local_bairros[55]"  value="MORUMBI" ><label class=".right-align" for="servicos_procurados_local_bairros[55]">MORUMBI</label>	
+								<input type="checkbox" class="filled-in" name="servicos_procurados_local_bairros" id="servicos_procurados_local_bairros[56]"  value="PARAíSO" ><label class=".right-align" for="servicos_procurados_local_bairros[56]">PARAíSO</label>
+								<input type="checkbox" class="filled-in" name="servicos_procurados_local_bairros" id="servicos_procurados_local_bairros[57]"  value="SANTO AMARO" ><label class=".right-align" for="servicos_procurados_local_bairros[57]">SANTO AMARO</label>
+								<input type="checkbox" class="filled-in" name="servicos_procurados_local_bairros" id="servicos_procurados_local_bairros[58]"  value="SAúDE" ><label class=".right-align" for="servicos_procurados_local_bairros[58]">SAúDE</label>
+								<input type="checkbox" class="filled-in" name="servicos_procurados_local_bairros" id="servicos_procurados_local_bairros[59]"  value="VILA ALEXANDRIA" ><label class=".right-align" for="servicos_procurados_local_bairros[59]">VILA ALEXANDRIA</label>
+								<input type="checkbox" class="filled-in" name="servicos_procurados_local_bairros" id="servicos_procurados_local_bairros[60]"  value="VILA DAS MERCêS" ><label class=".right-align" for="servicos_procurados_local_bairros[60]">VILA DAS MERCêS</label>
+								<input type="checkbox" class="filled-in" name="servicos_procurados_local_bairros" id="servicos_procurados_local_bairros[61]"  value="VILA MARIANA" ><label class=".right-align" for="servicos_procurados_local_bairros[61]">VILA MARIANA</label>
+
+							</div>
+							<div class="col s3">								
+								<input type="checkbox" class="filled-in" name="servicos_procurados_local_bairros" id="servicos_procurados_local_bairros[62]"  value="VILA MASCOTE" ><label class=".right-align" for="servicos_procurados_local_bairros[62]">VILA MASCOTE</label>
+								<input type="checkbox" class="filled-in" name="servicos_procurados_local_bairros" id="servicos_procurados_local_bairros[63]"  value="VILA MONUMENTO" ><label class=".right-align" for="servicos_procurados_local_bairros[63]">VILA MONUMENTO</label>
+								<input type="checkbox" class="filled-in" name="servicos_procurados_local_bairros" id="servicos_procurados_local_bairros[64]"  value="VILA OLíMPIA" ><label class=".right-align" for="servicos_procurados_local_bairros[64]">VILA OLíMPIA</label>
+							</div>	
+						</div>
+					</label>		
+					<label class="item item-input " >
+						<label class="teal-text" for="servico_procurado_observacoes_local">Observações sobre o local procurado</label>
+							  		
+						<textarea class="teal lighten-5 teal-text materialize-textarea" id="servico_procurado_observacoes_local" name="servico_procurado_observacoes_local" rows="10" ></textarea>
+					</label>
+
+
+					</div>	
+
+					</label>
+
+
+
+					<label class="item item-checkbox " >
+						<div class="input-label">
+							  <input type="checkbox" class="filled-in" name="servicos_procurados_salgados" id="servicos_procurados_salgados" value="Salgados" > 
+								<label class="teal-text" for="servicos_procurados_salgados">Salgados</label>
+
+						</div>			
+						<textarea class="teal lighten-5 teal-text materialize-textarea escondido" id="servico_procurado_observacoes_salgados" rows="10" placeholder="Observações sobre os salgados"></textarea>
+
+					</label>
+
+					<label class="item item-checkbox " >
+						<div class="input-label">
+							  <input type="checkbox" class="filled-in" name="servicos_procurados_doces" id="servicos_procurados_doces" value="Doces" >
+							  <label class="teal-text" for="servicos_procurados_doces"> Doces</label>
+						</div>			
+						<textarea class="teal lighten-5 teal-text materialize-textarea escondido" id="servico_procurado_observacoes_doces" rows="10" placeholder="Observações sobre os doces"></textarea>
+
+					</label>
+
+					<label class="item item-checkbox " >
+						<div class="input-label">
+							  <input type="checkbox" class="filled-in" name="servicos_procurados_bolo" id="servicos_procurados_bolo" value="Bolo" >
+							  <label class="teal-text" for="servicos_procurados_bolo"> Bolo</label>
+						</div>			
+						<textarea class="teal lighten-5 teal-text materialize-textarea escondido" id="servico_procurado_observacoes_bolo" rows="10" placeholder="Observações sobre o Bolo"></textarea>
+
+					</label>
+
+					<label class="item item-checkbox " >
+						<div class="input-label">
+							  <input type="checkbox" class="filled-in" name="servicos_procurados_animacao" id="servicos_procurados_animacao" value="Animação" >
+							  <label class="teal-text" for="servicos_procurados_animacao"> Animação</label>
+						</div>			
+						<textarea class="teal lighten-5 teal-text materialize-textarea escondido" id="servico_procurado_observacoes_animacao" rows="10" placeholder="Observações sobre a animação"></textarea>
+
+					</label>		
+				
+
+					<label class="item item-checkbox " >
+						<div class="input-label">
+							  <input type="checkbox" class="filled-in" name="servicos_procurados_decoracao" id="servicos_procurados_decoracao" value="Decoração" >
+							  <label class="teal-text" for="servicos_procurados_decoracao"> Decoração</label>
+						</div>			
+						<textarea class="teal lighten-5 teal-text materialize-textarea escondido" id="servico_procurado_observacoes_decoracao" rows="10" placeholder="Observações sobre a decoração"></textarea>
+
+					</label>
+
+					<label class="item item-checkbox " >
+						<div class="input-label">
+							  <input type="checkbox" class="filled-in" name="servicos_procurados_outros" id="servicos_procurados_outros" value="Outros Serviços" >
+							  <label class="teal-text" for="servicos_procurados_outros"> Outros Serviços</label>
+						</div>			
+						<textarea class="teal lighten-5 teal-text materialize-textarea escondido" id="servico_procurado_observacoes_outros" rows="10" placeholder="Observações sobre os outros serviços"></textarea>
+
+					</label>
+
+
+				
+				
+				
+				<div class="card-action">
+
+					<button class="btn waves-effect waves-light" type="submit" name="action">Solicitar Orçamentos
+	    				<i class="mdi-content-send right"></i>
+	  				</button>	
+							
+				</div>  
+			</form>
+		</div>		
+</template>

@@ -1,0 +1,339 @@
+<template name="lista_orcamentos_cliente_old">
+
+		<div class="card"> 
+			
+			<div class="card-content">		
+
+				<div class="collection">
+					<div class="collection-item">
+				      <h5>Orçamentos da Solicitação realizada em {{ formatTime obj_solic.data_solic }}</h5>
+				    </div>	
+					<ul class="collapsible" >
+
+						{{#each obj_solic.arr_servicos }}
+							{{#if  getQtdOrcamentos this }}
+							<li>
+						      	<div class="collapsible-header {{ active this }} teal white-text">{{ this }}<i class="mdi-navigation-expand-more right-align"></i>
+						      	<span class="badge white-text">{{ getQtdOrcamentos this }}</span>	
+						      	</div>
+						      	<div class="collapsible-body">
+						      		<table class="striped hoverable">
+								        <thead>
+								          <tr>
+								              <th data-field="id">ID</th>
+								              <th data-field="name">Valor</th>
+								              	{{#if check this "LOCAL"}}
+												 <th data-field="duracao">Duração</th>
+										       	{{/if}}
+										       	<th data-field="price">Detalhes</th>	
+								          </tr>
+								        </thead>
+
+								        <tbody>
+								        	{{#each getListaOrcamentos this }}
+
+										          	<tr>
+										            <td>{{_id}}</td>
+										            <td>{{valor}}</td>
+									              	{{#if check tipo "LOCAL"}}
+													 <td>{{duracao}}</td>
+											       	{{/if}}	
+											       	<td>{{detalhes}}</td>					            
+										          </tr>
+		  
+								          {{/each}}	
+								        </tbody>
+								    </table><br><br>
+								</div>    
+							</li>
+							{{else}}		
+							<li>
+						      	<div class="collapsible-header teal  lighten-5 teal-text">{{this}}
+						      		<i class="mdi-hardware-keyboard-arrow-right right-align"></i>
+						      	<span class="badge teal-text">0</span>	
+						      	</div>
+						    </li>  	
+							{{/if}}
+						{{/each}}		
+
+
+
+
+						{{#if obj_solic.procura_local }}
+							{{#if  getQtdOrcamentos "LOCAL" }}
+							<li>
+						      	<div class="collapsible-header {{ active "LOCAL"}} teal white-text">LOCAL<i class="mdi-navigation-expand-more right-align"></i>
+						      	<span class="badge white-text">{{ getQtdOrcamentos "LOCAL" }}</span>	
+						      	</div>
+						      	<div class="collapsible-body">
+						      		<table class="striped hoverable">
+								        <thead>
+								          <tr>
+								              <th data-field="id">ID</th>
+								              <th data-field="name">Valor</th>
+								              <th data-field="price">Duração</th>
+								              <th data-field="price">Detalhes</th>	
+								          </tr>
+								        </thead>
+
+								        <tbody>
+								        	{{#each getListaOrcamentos "LOCAL" }}
+
+										          	<tr>
+										            <td>{{_id}}</td>
+										            <td>{{local_valor}}</td>
+										            <td>{{local_duracao}}</td>
+										            <td>{{local_detalhes}}</td>					            
+										          </tr>
+		  
+								          {{/each}}	
+								        </tbody>
+								    </table><br><br>
+								</div>    
+							</li>
+							{{else}}		
+							<li>
+						      	<div class="collapsible-header teal  lighten-5 teal-text">LOCAL
+						      		<i class="mdi-hardware-keyboard-arrow-right right-align"></i>
+						      	<span class="badge teal-text">0</span>	
+						      	</div>
+						    </li>  	
+							{{/if}}
+						{{/if}}	
+
+
+						{{#if obj_solic.servicos_procurados_salgados }}
+							{{#if  getQtdOrcamentos "SALGADO" }}
+								<li>
+							      	<div class="collapsible-header  {{ active "LOCAL"}} teal white-text">SALGADO<i class="mdi-navigation-expand-more right-align"></i><span class="badge white-text">{{ getQtdOrcamentos "SALGADOS" }}</span></div>
+							      	<div class="collapsible-body">
+										<table class="striped hoverable">
+									        <thead>
+									          <tr>
+									              <th data-field="id">ID</th>
+									              <th data-field="name">Valor</th>
+									              <th data-field="price">Detalhes</th>
+
+									          </tr>
+									        </thead>
+
+									        <tbody>
+									        	{{#each getListaOrcamentos "SALGADOS"}}
+
+											          	<tr>
+											            <td>{{_id}}</td>
+											            <td>{{salgados_valor}}</td>
+											            <td>{{salgados_detalhes}}</td>
+											          </tr>
+
+									          {{/each}}	
+									        </tbody>
+									    </table><br><br>
+									</div>    
+								</li>
+						{{else}}		
+							<li>
+						      	<div class="collapsible-header teal  lighten-5 teal-text">SALGADO
+						      		<i class="mdi-hardware-keyboard-arrow-right right-align"></i>
+						      	<span class="badge teal-text">0</span>	
+						      	</div>
+						    </li>  	
+							{{/if}}
+						{{/if}}	
+						{{#if obj_solic.procura_doces }}
+							{{#if  getQtdOrcamentos "DOCES" }}	
+								<li>
+							      	<div class="collapsible-header {{ active "DOCES"}} teal white-text">DOCES<i class="mdi-navigation-expand-more right-align"></i><span class="badge white-text">{{ getQtdOrcamentos "DOCES" }}</span></div>
+							      	<div class="collapsible-body">
+										<table class="striped hoverable">
+									        <thead>
+									          <tr>
+									              <th data-field="id">ID</th>
+									              <th data-field="name">Valor</th>
+									              <th data-field="price">Detalhes</th>
+
+									          </tr>
+									        </thead>
+
+									        <tbody>
+									        	{{#each getListaOrcamentos "DOCES"}}
+
+											          	<tr>
+											            <td>{{_id}}</td>
+											            <td>{{doces_valor}}</td>
+											            <td>{{doces_detalhes}}</td>
+											          </tr>
+
+									          {{/each}}	
+									        </tbody>
+									    </table><br><br>
+									</div>    
+								</li>
+							{{else}}		
+								<li>
+							      	<div class="collapsible-header teal  lighten-5 teal-text">DOCES
+							      		<i class="mdi-hardware-keyboard-arrow-right right-align"></i>
+							      	<span class="badge teal-text">0</span>	
+							      	</div>
+							    </li>  	
+							{{/if}}
+						{{/if}}	
+						{{#if obj_solic.servicos_procurados_bolo }}
+							{{#if  getQtdOrcamentos "BOLO" }}									
+								<li>
+							      	<div class="collapsible-header {{ active "BOLO"}} teal white-text">BOLO<i class="mdi-navigation-expand-more right-align"></i><span class="badge white-text">{{ getQtdOrcamentos "BOLO" }}</span></div>
+							      	<div class="collapsible-body">
+										<table class="striped hoverable">
+									        <thead>
+									          <tr>
+									              <th data-field="id">ID</th>
+									              <th data-field="name">Valor</th>
+									              <th data-field="price">Detalhes</th>
+
+									          </tr>
+									        </thead>
+
+									        <tbody>
+									        	{{#each getListaOrcamentos "BOLO"}}
+
+											          	<tr>
+											            <td>{{_id}}</td>
+											            <td>{{bolo_valor}}</td>
+											            <td>{{bolo_detalhes}}</td>
+											          </tr>
+
+									          {{/each}}	
+									        </tbody>
+									    </table><br><br>
+									</div>    
+								</li>
+							{{else}}		
+								<li>
+							      	<div class="collapsible-header teal  lighten-5 teal-text">BOLO
+							      		<i class="mdi-hardware-keyboard-arrow-right right-align"></i>
+							      	<span class="badge teal-text">0</span>	
+							      	</div>
+							    </li>  	
+							{{/if}}
+						{{/if}}	
+						{{#if obj_solic.servicos_procurados_decoracao }}
+							{{#if  getQtdOrcamentos "DECORACAO" }}									
+								<li>
+							      	<div class="collapsible-header {{ active "DECORACAO"}} teal white-text">DECORAÇÃO<i class="mdi-navigation-expand-more right-align"></i><span class="badge white-text">{{ getQtdOrcamentos "DECORACAO" }}</span></div>
+							      	<div class="collapsible-body">
+										<table class="striped hoverable">
+									        <thead>
+									          <tr>
+									              <th data-field="id">ID</th>
+									              <th data-field="name">Valor</th>
+									              <th data-field="price">Detalhes</th>
+
+									          </tr>
+									        </thead>
+
+									        <tbody>
+									        	{{#each getListaOrcamentos "DECORACAO"}}
+
+											          	<tr>
+											            <td>{{_id}}</td>
+											            <td>{{decoracao_valor}}</td>
+											            <td>{{decoracao_detalhes}}</td>
+											          </tr>
+
+									          {{/each}}	
+									        </tbody>
+									    </table><br><br>
+									</div>    
+								</li>
+							{{else}}		
+								<li>
+							      	<div class="collapsible-header teal  lighten-5 teal-text">DECORACAO
+							      		<i class="mdi-hardware-keyboard-arrow-right right-align"></i>
+							      	<span class="badge teal-text">0</span>	
+							      	</div>
+							    </li>  	
+							{{/if}}
+						{{/if}}	
+						{{#if obj_solic.servicos_procurados_animacao }}
+							{{#if  getQtdOrcamentos "ANIMACAO" }}									
+								<li>
+							      	<div class="collapsible-header {{ active "ANIMACAO"}} teal white-text">ANIMAÇÃO<i class="mdi-navigation-expand-more right-align"></i><span class="badge white-text">{{ getQtdOrcamentos "ANIMACAO" }}</span></div>
+							      	<div class="collapsible-body">
+										<table class="striped hoverable">
+									        <thead>
+									          <tr>
+									              <th data-field="id">ID</th>
+									              <th data-field="name">Valor</th>
+									              <th data-field="price">Detalhes</th>
+
+									          </tr>
+									        </thead>
+
+									        <tbody>
+									        	{{#each getListaOrcamentos "ANIMACAO"}}
+
+											          	<tr>
+											            <td>{{_id}}</td>
+											            <td>{{animacao_valor}}</td>
+											            <td>{{animacao_detalhes}}</td>
+											          </tr>
+
+									          {{/each}}	
+									        </tbody>
+									    </table><br><br>
+									</div>    
+								</li>	
+							{{else}}		
+								<li>
+							      	<div class="collapsible-header teal  lighten-5 teal-text">ANIMACAO
+							      		<i class="mdi-hardware-keyboard-arrow-right right-align"></i>
+							      	<span class="badge teal-text">0</span>	
+							      	</div>
+							    </li>  	
+							{{/if}}
+						{{/if}}	
+						{{#if obj_solic.servicos_procurados_outros }}
+							{{#if  getQtdOrcamentos "OUTROS" }}														
+								<li>
+							      	<div class="collapsible-header {{ active "OUTROS"}} teal white-text">OUTROS<i class="mdi-navigation-expand-more right-align"></i><span class="badge white-text">{{ getQtdOrcamentos "OUTROS" }}</span></div>
+							      	<div class="collapsible-body">
+										<table class="striped hoverable">
+									        <thead>
+									          <tr>
+									              <th data-field="id">ID</th>
+									              <th data-field="tipo">TIPO</th>
+									              <th data-field="name">Valor</th>
+									              <th data-field="price">Detalhes</th>
+
+									          </tr>
+									        </thead>
+
+									        <tbody>
+									        	{{#each getListaOrcamentos "OUTROS"}}
+
+											          	<tr>
+											            <td>{{_id}}</td>
+											            <td>{{outros_tipo}}</td>
+											            <td>{{outros_valor}}</td>
+											            <td>{{outros_detalhes}}</td>
+											          </tr>
+
+									          {{/each}}	
+									        </tbody>
+									    </table><br><br>
+									</div>    
+								</li>	
+							{{else}}		
+								<li>
+							      	<div class="collapsible-header teal  lighten-5 teal-text">OUTROS
+							      		<i class="mdi-hardware-keyboard-arrow-right right-align"></i>
+							      	<span class="badge teal-text">0</span>	
+							      	</div>
+							    </li>  	
+							{{/if}}
+						{{/if}}																				
+	  				</ul>	
+	  			</div>		
+			</div>
+		</div>	
+</template>			

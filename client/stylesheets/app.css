@@ -1,0 +1,105 @@
+
+
+
+.section {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.hero-image.macbook {
+  top: 285px;
+  left: 85px;
+  height: 340px;
+}
+.hero-image.phone-white {
+  top: 323px;
+  left: 400px;
+  height: 320px;
+}
+
+.hero-image {
+  position: absolute;
+  top: 315px;
+  left: 450px;
+  height: 340px;
+}
+
+.hero-text-block {
+  position: relative;
+  z-index: 500;
+  width: 540px;
+  float: left;
+}
+.hero-title {
+  margin-top: 0px;
+  margin-bottom: 1px;
+  font-family: Raleway, sans-serif;
+  color: white;
+  font-size: 20px;
+  line-height: 44px;
+  font-weight: 400;
+  text-transform: uppercase;
+  text-shadow: black 0px 0px 6px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.card {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 940px;
+
+
+}
+
+
+
+::-webkit-scrollbar {
+	display:block;
+    -webkit-appearance: none;
+    width: 20px;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0,0,0,.5);
+    -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+}
+
+ .ativo{
+  display: block;
+   border: 1px solid #ddd;
+ }
+ .escondido{
+  display: none;
+ }
+
+.tab{
+  padding: 5px;
+  width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 2px;
+  background: #f7f7f7;
+  text-align: center;
+    margin-bottom: 10px;  
+    height: 30px;
+ }
+.tab-sel{
+  padding: 5px;
+  width: 100%;
+  border: 2px solid rgba(0, 0, 0, 0.05);
+  border-radius: 2px;
+  background : rgba(0, 0, 0, 0.05);
+  text-align: center;
+  margin-bottom: 10px;  
+  height: 35px;
+ 
+ } 

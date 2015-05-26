@@ -1,0 +1,71 @@
+<template name="lista_orcamentos_cliente">
+
+		<div class="card"> 
+			
+			<div class="card-content">		
+
+				<div class="collection">
+					<div class="collection-item">
+				      <h5>Orçamentos da Solicitação realizada em {{ formatTime obj_solic.data_solic }}</h5>
+				    </div>	
+					<ul class="collapsible" >
+
+						{{#each obj_solic.arr_servicos }}
+							{{#if  getQtdOrcamentos this }}
+							<li>
+						      	<div class="collapsible-header {{ active this }} teal white-text">{{ this }}<i class="mdi-navigation-expand-more right-align"></i>
+						      	<span class="badge white-text">{{ getQtdOrcamentos this }}</span>	
+						      	</div>
+						      	<div class="collapsible-body">
+						      		<table class="striped hoverable">
+								        <thead>
+								          <tr>
+								              <th data-field="id">Fornecdor</th>
+								              <!--th data-field="id">Email</th>
+								              <th data-field="id">Telefone</th-->
+								              <th data-field="name">Valor</th>
+								              	{{#if check this "LOCAL"}}
+												 <th data-field="duracao">Duração</th>
+										       	{{/if}}
+										       	<th data-field="price">Ver Detalhes</th>	
+								          </tr>
+								        </thead>
+
+								        <tbody>
+								        	{{#each getListaOrcamentos this }}
+
+										          	<tr>
+										            <td><b>Nome:</b> {{fornecedor.profile.name}}<br>
+										            <b>Email:</b> {{fornecedor.profile.email}}<br>
+										            <b>Telefone:</b> {{fornecedor.profile.telefone}}</td>
+										            <td>R${{valor}}</td>
+									              	{{#if check tipo "LOCAL"}}
+													 <td>{{duracao}}</td>
+											       	{{/if}}	
+											       	<td><a  href="/ver_orcamento_cliente/{{id_solic}}/?tipo={{tipo}}&id_ssr={{id_ssr}}&id_fornecedor={{fornecedor._id}}"><span class="btn green">Ver</span></a>	</td>					            
+										          </tr>
+		  
+								          {{/each}}	
+								        </tbody>
+								    </table><br><br>
+								</div>    
+							</li>
+							{{else}}		
+							<li>
+						      	<div class="collapsible-header teal  lighten-5 teal-text">{{this}}
+						      		<i class="mdi-hardware-keyboard-arrow-right right-align"></i>
+						      	<span class="badge teal-text">0</span>	
+						      	</div>
+						    </li>  	
+							{{/if}}
+						{{/each}}		
+
+
+
+
+																							
+	  				</ul>	
+	  			</div>		
+			</div>
+		</div>	
+</template>			

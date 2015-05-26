@@ -1,0 +1,129 @@
+<template name="ver_solic_deslogado">
+	<div class="card"> 
+		
+		<div class="card-image">
+			<img  src="/res/Kids-Birthday-Party_Slide.jpg">
+			<div class="card-title white-text teal"><b>Solicitação de orçamento</b></div>
+				
+		</div>
+		<div class="card-content">
+			{{#with obj_solic }} 
+			<div class="row">
+				<div class="col s12 m6"	>						
+					<ul class="collection">
+					<li class="collection-item">
+				      <h5>Dados da Solicitação</h5>
+				      (Data Solicitação: {{formatTime data_solic}} )
+				    </li>
+					<li class="collection-item teal white-text">
+				      Contato 
+				      </li>	
+				      <li class="collection-item"><b>Nome:</b> {{solicitante.profile.name}}</li>
+					  <li class="collection-item"><b>Email:</b> {{ oculta solicitante.profile.email}}</li>
+					  <li class="collection-item"><b>Telefone:</b> {{ oculta solicitante.profile.telefone}}</li>
+				      <li class="collection-item teal white-text">
+				      Festa 
+				      </li>	
+				      <li class="collection-item"><b>Quantidade de Convidados:</b> {{festa_convidados}}</li>
+				      <li class="collection-item"><b>Data da Festa:</b> {{formatTime festa_data "DD/MM/YYYY"}} {{festa_hora}}</li>
+				      <li class="collection-item"><p class="title"><b>Detalhes da festa:</b></p>
+						{{festa_detalhes}}
+				      </li>
+
+				      {{#if tem_servicos }}
+						<li class="collection-item teal white-text">Serviços Procurados</li>
+					  {{/if}}				      
+						{{#each servicos_procurados}}
+							<li class="collection-item"><h5>{{tipo}}</h5>
+					       	{{#if check tipo "LOCAL"}}
+							<p class="title" ><b>Bairros desejados:</b></p>						
+				      			{{#each bairros }}	
+				      				{{this}}<br>
+				      			{{/each}}
+					       	{{/if}}
+					        <p class="title"><b>Observações:</b></p>{{observacoes}}         
+					        
+						</li>
+						{{/each}}   
+
+
+				    </ul>
+				</div>
+				<div class="col s12 m6"	>
+					<form id="formOrca" >	
+
+
+						<ul class="collection">
+							<li class="collection-item">
+						      <h5>Orçamento</h5>
+						    </li>
+							<input  id="orc_id_solic" name="orc_id_solic" type="hidden"    value="{{_id}}">	
+							{{#if currentUser}}
+
+							{{else}}
+								<li class="collection-item teal white-text">Dados do Fornecedor</li>
+								
+								<input  id="orc_id_pre_fornecedor" name="orc_id_pre_fornecedor" type="hidden"    value="{{id_pre_fornecedor}}">
+								<li class="collection-item">
+									<label for="orc_fornecedor_nome">Nome</label>
+									<input  id="orc_fornecedor_nome" name="orc_fornecedor_nome" type="text"    value="{{orc_fornecedor_nome}}">
+								</li>
+								<li class="collection-item">
+									<label for="orc_fornecedor_email">Email</label>
+									<input  id="orc_fornecedor_email" name="orc_fornecedor_email" type="email"    value="{{orc_fornecedor_email}}">
+								</li>
+								<li class="collection-item">		
+								 	<label for="orc_fornecedor_senha">Senha*</label>
+										<input  id="orc_fornecedor_senha" name="orc_fornecedor_senha" type="password"  required="required" >
+										
+								</li>
+								<li class="collection-item">		
+								 	<label for="orc_fornecedor_senha1">Confirmar senha*</label>
+										<input  id="orc_fornecedor_senha1" name="orc_fornecedor_senha1" type="password"  required="required" >
+										
+								</li>	
+								<li class="collection-item">
+									<label for="orc_fornecedor_telefone">Telefone</label>
+									<input  id="orc_fornecedor_telefone" name="orc_fornecedor_telefone" type="text"    value="{{orc_fornecedor_telefone}}">
+								</li>
+								<li class="collection-item">
+									<label for="orc_fornecedor_cep">CEP</label>
+									<input  id="orc_fornecedor_cep" name="orc_fornecedor_cep" type="text"    value="{{orc_fornecedor_cep}}">
+								</li>																								
+							{{/if}}	
+
+							{{#each servicos_procurados}}
+							<li class="collection-item teal white-text">{{tipo}}</li>
+							<input  id="orc_tipos" name="orc_tipos[]" type="hidden"    value="{{tipo}}">
+
+					       	{{#if check tipo "LOCAL"}}
+								<li class="collection-item">
+									<label for="orc_{{toLowerCase tipo}}_duracao" >Duração(horas)</label>
+									<input type="number" id="orc_{{toLowerCase tipo}}_duracao" name="orc_{{toLowerCase tipo}}_duracao" min="1" max="12">
+								</li>
+					       	{{/if}}
+					       <li class="collection-item">
+								<label for="orc_{{toLowerCase tipo}}_valor">Valor(R$)</label>
+								<input  id="orc_{{toLowerCase tipo}}_valor" name="orc_{{toLowerCase tipo}}_valor" type="text"    value="{{orc_local_valor}}">
+							</li>
+							<li class="collection-item">
+						    	<label for="orc_{{tipo}}_detalhes">Detalhes</label>							  		
+								<textarea class="materialize-textarea" id="orc_{{toLowerCase tipo}}_detalhes" name="orc_{{toLowerCase tipo}}_detalhes" rows="10" ></textarea>
+							</li>								   	       
+
+						{{/each}}   
+
+						</ul>
+							<div class=" card-action">
+								<button id="buttonEnviarOrcamento" class="btn waves-effect " type="submit" name="action">Enviar Orçamento
+				    				<i class="mdi-content-send right"></i>
+				  				</button>							
+					    	</div>
+						
+					</form>	
+				</div>
+			</div> 
+			{{/with}}
+		</div>	 
+	</div>		
+</template>

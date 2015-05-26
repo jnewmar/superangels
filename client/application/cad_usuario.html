@@ -1,0 +1,55 @@
+<template name="cad_usuario">				
+
+<div class="card"> 
+
+	<div class="card-image">
+		<img  src="/res/Kids-Birthday-Party_Slide.jpg">
+		<div class="card-title white-text teal"><b>Cadastrar Usuario</b></div>		
+	</div>
+	<form id="formSolicConvite" class="card-content">
+		 <label class="item item-input " >
+		 <label class="teal-text" for="nome_contato">Nome *</label>		
+				<input class="teal lighten-5 teal-text"   id="nome_contato" name="nome_contato" type="text"  required="required" value="{{nome_contato}}">
+				
+		</label>
+		 <label class="item item-input " >		
+		 	<label class="teal-text" for="email_contato">Email*</label>
+				<input class="teal lighten-5 teal-text"   id="email_contato" name="email_contato" type="text"  required="required" value="{{email_contato}}">
+				
+		</label>
+		 <label class="item item-input " >		
+		 	<label class="teal-text" for="senha">Senha*</label>
+				<input class="teal lighten-5 teal-text"   id="senha" name="senha" type="password"  required="required" >
+				
+		</label>
+		<label class="item item-input " >		
+		 	<label class="teal-text" for="senha1">Confirmar senha*</label>
+				<input class="teal lighten-5 teal-text"   id="senha1" name="senha1" type="password"  required="required" >
+				
+		</label>					
+		<label class="item item-input" >						
+			<label class="teal-text" for="telefone_contato">Telefone</label>
+				<input class="teal lighten-5 teal-text"   id="telefone_contato" name="telefone_contato" type="text"  value="{{telefone_contato}}">
+				
+		</label>
+		<label class="item item-input" >						
+			<label class="teal-text" for="cep_contato">CEP</label>
+				<input class="teal lighten-5 teal-text"   id="cep_contato" name="cep_contato" type="text"  value="{{cep_contato}}">
+				
+		</label>					
+		<label class="item item-input " >						
+			<label class="teal-text" for="foto_contato">Foto</label><br>
+				<div id="upload" class="btn waves-effect waves-light" >Upload New Profile Image</div>
+				
+		</label>	
+						
+		<div class="card-action">
+			<input    id="id_foto_contato" name="id_foto_contato" type="hidden"  >
+			<button class="btn waves-effect waves-light" type="submit" name="action">Cadastrar
+				<i class="mdi-content-send right"></i>
+				</button>	
+					
+		</div>  				
+	</form>
+</div>		
+</template>

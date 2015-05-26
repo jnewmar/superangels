@@ -1,0 +1,50 @@
+<template name="lista_solic_recebidas">
+
+		<div class="card"> 
+			
+
+			
+			<div class="card-content">	
+
+				<div class="collection">
+					<div class="collection-item">
+				      <h5>Todas as Solicitações</h5>
+				    </div>
+	
+
+					<table class="striped">
+				        <thead>
+				          <tr>
+				              <th data-field="data">Data</th>
+				              <th data-field="data">Solicitante</th>				              
+				              <th data-field="servico">Tipo</th>
+				              <th data-field="orcamento ">Orçamentos</th>
+				          </tr>
+				        </thead>
+
+				        <tbody>
+				        {{#each getListaSolicRecebidas}}
+				          <tr>
+				            <td class="top-valign">{{ formatTime data_solic }}</td>
+				            <td>{{ solicitante.profile.name }}</td>
+				            <td>{{tipo}}</td>
+				            <td>           	
+				            	{{#if respondido }}
+				            	<a  href="/ver_orcamento/{{id_solic}}/?tipo={{tipo}}&id_ssr={{_id}}&id_cliente={{id_cliente}}"><span class="btn green">Ver Minha Proposta</span></a>				            		
+				            	{{else}}
+				      			<a  href="/ver_solic/{{id_solic}}/?tipo={{tipo}}&id_ssr={{_id}}&id_cliente={{id_cliente}}"><span class="btn">Responder Solicitação</span></a>
+				      			{{/if}}
+
+				            </td>
+				          </tr>
+				         {{/each}}
+						 </tbody>
+					</table>
+
+					
+
+			      
+			    </div>
+			</div>	
+		</div>
+</template>			

@@ -1,0 +1,81 @@
+<template name="solic_cadastrada">
+
+	<div class="card"> 
+			
+		<div class="card-title center white-text teal ">	
+			<div class="card-image">
+				<img  src="/res/Kids-Birthday-Party_Slide.jpg">
+			</div>	
+			<h4>Encontraremos os melhores fornecedores para a sua solicitação</h4>					
+			<h5 class="teal-text teal lighten-5"><br>Agora fique atento aos próximos passos<br><br></h5>			
+		
+		</div>						
+		<div class="card-content">	
+
+			    <!--   Icon Section   -->
+			    <div class="row">
+			        <div class="col s12 m4">
+			          <div class="icon-block">
+			            <h2 class="center brown-text"><i class="mdi-communication-email"></i></h2>
+			            <h5 class="center">Confirme seu email</h5>
+
+			            <p class="light">Não se esqueça de acessar seu email. E ativar sua conta do PowerFesta</p>
+			          </div>
+			        </div>
+
+			        <div class="col s12 m4">
+			          <div class="icon-block">
+			            <h2 class="center brown-text"><i class="mdi-communication-quick-contacts-mail"></i></h2>
+			            <h5 class="center">Fique de olho na sua caixa de entrada</h5>
+			            <p class="light">Enviaremos um email quando algum forncedor responder a sua solicitação</p>
+			          </div>
+			        </div>
+
+			        <div class="col s12 m4">
+			          <div class="icon-block">
+			            <h2 class="center brown-text"><i class="mdi-action-extension"></i></h2>
+			            <h5 class="center">Escolha a opção que se encaixa melhor</h5>
+
+			            <p class="light">Analise as respostas recebidas e escolha a que mais se encaixa no que voce deseja</p>
+			          </div>
+			        </div>
+			    </div>   
+   				{{#with obj_solic }} 
+			
+					<ul class="collection">
+					<li class="collection-item">
+				      <h5>Dados da Solicitação</h5>
+				      (Data Solicitação: {{formatTime data_solic}} )
+				    </li>					
+				      <li class="collection-item teal white-text">
+				      Festa 
+				      </li>	
+				      <li class="collection-item"><b>Quantidade de Convidados:</b> {{festa_convidados}}</li>
+				      <li class="collection-item"><b>Data da Festa:</b> {{formatTime festa_data "DD/MM/YYYY"}} {{festa_hora}}</li>
+				      <li class="collection-item"><p class="title"><b>Detalhes da festa:</b></p>
+						{{festa_detalhes}}
+				      </li>
+
+				      {{#if tem_servicos }}
+						<li class="collection-item teal white-text">Serviços Procurados</li>
+					  {{/if}}				      
+						{{#each servicos_procurados}}
+							<li class="collection-item"><h5>{{tipo}}</h5>
+					       	{{#if check tipo "LOCAL"}}
+							<p class="title" ><b>Bairros desejados:</b></p>						
+				      			{{#each bairros }}	
+				      				{{this}}<br>
+				      			{{/each}}
+					       	{{/if}}
+					        <p class="title"><b>Observações:</b></p>{{observacoes}}         
+					        
+							</li>
+						{{/each}}   
+
+
+				    </ul>
+
+				{{/with}}
+		</div>	      
+	</div>	
+</template>			

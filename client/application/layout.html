@@ -1,0 +1,16 @@
+<template name="layout">
+	<body>    
+	{{#if tem_menu }}
+  	  {{> yield region="header"}}  
+      {{> yield}}  
+      {{> yield region="footer"}}  
+      {{else}}
+        <nav class="white" style="height:75px;" role="navigation">
+          <div class="nav-wrapper container">
+            <a id="logo-container" href="/" class="brand-logo"><img  src="/logo_superangels.png" style="height:75px;"></a>
+          </div>
+        </nav>     
+      {{> yield}}  
+      {{/if}}
+	</body>
+</template>

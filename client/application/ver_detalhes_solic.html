@@ -1,0 +1,48 @@
+<template name="ver_detalhes_solic">
+	<div class="card"> 
+		
+		<div class="card-image">
+			<img  src="/res/Kids-Birthday-Party_Slide.jpg">
+			<div class="card-title white-text teal"><b>Solicitação de orçamento</b></div>
+				
+		</div>
+		<div class="card-content">
+			{{#with obj_solic }} 
+			
+					<ul class="collection">
+					<li class="collection-item">
+				      <h5>Dados da Solicitação</h5>
+				      (Data Solicitação: {{formatTime data_solic}} )
+				    </li>					
+				      <li class="collection-item teal white-text">
+				      Festa 
+				      </li>	
+				      <li class="collection-item"><b>Quantidade de Convidados:</b> {{festa_convidados}}</li>
+				      <li class="collection-item"><b>Data da Festa:</b> {{formatTime festa_data "DD/MM/YYYY"}} {{festa_hora}}</li>
+				      <li class="collection-item"><p class="title"><b>Detalhes da festa:</b></p>
+						{{festa_detalhes}}
+				      </li>
+
+				      {{#if tem_servicos }}
+						<li class="collection-item teal white-text">Serviços Procurados</li>
+					  {{/if}}				      
+						{{#each servicos_procurados}}
+							<li class="collection-item"><h5>{{tipo}}</h5>
+					       	{{#if check tipo "LOCAL"}}
+							<p class="title" ><b>Bairros desejados:</b></p>						
+				      			{{#each bairros }}	
+				      				{{this}}<br>
+				      			{{/each}}
+					       	{{/if}}
+					        <p class="title"><b>Observações:</b></p>{{observacoes}}         
+					        
+							</li>
+						{{/each}}   
+
+
+				    </ul>
+
+			{{/with}}
+		</div>	 
+	</div>		
+</template>

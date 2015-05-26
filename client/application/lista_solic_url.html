@@ -1,0 +1,51 @@
+<template name="lista_solic_url">
+
+		<div class="card"> 
+			
+
+			
+			<div class="card-content">	
+
+				<div class="collection">
+					<div class="collection-item">
+				      <h5>Todas as Solicitações</h5>
+				    </div>
+	
+
+					<table class="striped">
+				        <thead>
+				          <tr>
+				              <th data-field="data">Data</th>
+				              <th data-field="data">Solicitante</th>		
+								<th data-field="data">URL para pedir orçamento</th>		
+
+				          </tr>
+				        </thead>
+
+				        <tbody>
+				        {{#each getListaSolic}}
+				          <tr>
+				            <td class="top-valign">{{ formatTime data_solic }}</td>
+				            <td>{{ solicitante.profile.name }}</td>
+				            <td>
+				            	<b>TODOS</b> -> http://powerfesta.meteor.com/ver_solic_deslogado/{{_id}}/?id_cliente={{ id_usuario }}<br>				            
+				            	{{#each arr_servicos }}
+				            	<b>{{this}}</b> -> http://powerfesta.meteor.com/ver_solic_deslogado/?tipo={{this}}&{{_id}}/id_cliente={{ ../id_usuario }}<br>
+				
+				      			{{/each}}
+				      		</td>
+
+
+				          
+				          </tr>
+				         {{/each}}
+						 </tbody>
+					</table>
+
+					
+
+			      
+			    </div>
+			</div>	
+		</div>
+</template>			

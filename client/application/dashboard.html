@@ -1,0 +1,39 @@
+<template name="dashboard">				
+
+<div class="card"> 
+
+	<div class="card-image">
+		<img  src="/res/Kids-Birthday-Party_Slide.jpg">
+		<div class="card-title white-text teal"><b>Dashboard</b></div>		
+	</div>
+	<div class="card-content">
+
+		<div class="row">
+			<div class="col s12 m6"	>
+				<ul class="collection">
+					<li class="collection-item teal white-text"><h5>Dados de Hoje</h5></li>
+				      <li class="collection-item"><b>Clientes:</b><div class="badge" id="hoje_clientes"></div></li>
+					  <li class="collection-item"><b>Fornecedores:</b> <div class="badge" id="hoje_fornecedores"></div></li>
+					  <li class="collection-item"><b>Soliciatções:</b> <div class="badge" id="hoje_solic"></div></li>
+					  <li class="collection-item"><b>Orçamentos:</b> <div class="badge" id="hoje_orc"></div></li>
+				    
+			    </ul>  
+			</div>
+			<div class="col s12 m6"	>
+				<ul class="collection">
+					<li class="collection-item teal white-text"><h5>Dados Gerais</h5></li>
+				    <li class="collection-item"><b>Clientes:</b><div class="badge" id="geral_clientes"></div></li>
+					<li class="collection-item"><b>Fornecedores:</b><div class="badge" id="geral_fornecedores"></div></li>
+					<li class="collection-item"><b>Soliciatções:</b><div class="badge" id="geral_solic"></div></li>
+					<li class="collection-item"><b>Orçamentos:</b><div class="badge" id="geral_orc"></div></li>		    
+			    </ul>  
+			</div>
+		</div>
+
+	</div>
+	<div class="card-action">
+              <a href="/lista_clientes" class="btn white-text" >Clientes</a>
+              <a href='lista_fornecedores' class="btn white-text" >Fornecedores</a>
+            </div>	
+</div>		
+</template>

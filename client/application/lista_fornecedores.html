@@ -1,0 +1,64 @@
+<template name="lista_fornecedores">
+
+		<div class="card"> 
+			
+
+			
+			<div class="card-content">	
+
+				<div class="collection">
+					<div class="collection-item">
+				      <h5>Fornecedores</h5>
+				    </div>
+	
+
+					<table class="striped">
+				        <thead>
+				          <tr>
+				              <th data-field="data">Data Cadastro</th>
+				              <th data-field="nome">Nome</th>		
+				              <th data-field="email">Email</th>
+				              <th data-field="telefone">Telefone</th>
+				              <th data-field="telefone">Detalhes</th>
+				          </tr>
+				        </thead>
+
+				        <tbody>
+				        {{#each getListaFornecedores}}
+				          <tr>
+				            <td class="top-valign">{{ formatTime createdAt }}</td>
+				            <td>{{ profile.name }}</td>
+							<td>{{ profile.email }}</td>
+							<td>{{ profile.telefone }}</td>
+							<td><button class="btn waves-effect waves-light abrirModalLogin" id="{{ _id }}" type="submit" name="action">Ver</button></td>
+				            <!--td><a  href="/ver_solic_deslogado/{{_id}}/?id_cliente={{ id_usuario }}"><span class="btn green">VER TODOS</span></a>
+				            	{{#each arr_servicos }}
+				      			<a  href="/ver_solic_deslogado/{{../_id}}/?tipo={{this}}&id_cliente={{ ../id_usuario }}"><span class="btn">{{this}}</span></a>
+				      			{{/each}}
+				      		</td-->				            
+				          </tr>
+
+
+							<div id="modal{{ _id }}" class="modal">
+							    <div class="modal-content">
+							        <div class="row  teal white-text">
+							          <div class="col s6 left-align"><h5>Detalhes</h5>
+							          </div>
+							          <div class="col s6 right-align ">
+							            <h6 class=" modal-action modal-close fecharModalLogin" id="{{_id}}">x Fechar</h6>
+							          </div>
+							        </div>
+							        <div><pre>{{json}}</pre></div> 
+							    </div>    
+							  </div>
+				         {{/each}}
+						 </tbody>
+					</table>
+
+					
+
+			      
+			    </div>
+			</div>	
+		</div>
+</template>			

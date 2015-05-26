@@ -1,0 +1,49 @@
+<template name="lista_solic_cliente">
+
+		<div class="card"> 
+			
+
+			
+			<div class="card-content">	
+
+				<div class="collection">
+					<div class="collection-item">
+				      <h5>Minhas Solicitações</h5>
+				    </div>
+	
+
+					<table class="striped">
+				        <thead>
+				          <tr>
+				              <th data-field="data">Data Solicitação</th>				              
+				              <th data-field="data">Data Festa</th>				              
+				              <th data-field="servicos">Detalhes</th>
+				              <th data-field="orcamento ">Orçamentos</th>
+				          </tr>
+				        </thead>
+
+				        <tbody>
+				        {{#each getListaSolic}}
+				          <tr>
+				            <td class="top-valign">{{ formatTime data_solic }}</td>				            
+				            <td class="top-valign">{{ formatTime festa_data "DD/MM/YYYY" }}</td>	
+				            <td><a  href="/ver_detalhes_solic/{{_id}}"><span class="btn green">DETALHES</span></a></td>
+				            <td>
+				            	<a  href="/lista_orcamentos_cliente/{{_id}}"><span class="btn green">VER TODOS</span></a>
+				            	{{#each arr_servicos }}
+				      			<a  href="/lista_orcamentos_cliente/{{../_id}}/?tipo={{this}}"><span class="btn">{{this}}</span></a>
+				      			{{/each}}
+
+				            </td>
+				          </tr>
+				         {{/each}}
+						 </tbody>
+					</table>
+
+					
+
+			      
+			    </div>
+			</div>	
+		</div>
+</template>			

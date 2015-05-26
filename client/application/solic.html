@@ -1,0 +1,229 @@
+<template name="solic">
+	<div class="card"> 
+		
+		<div class="card-image">
+			<img  src="/res/Kids-Birthday-Party_Slide.jpg">
+			<div class="card-title white-text teal"><b>Solicitação de orçamento</b></div>
+				
+		</div>
+		<div class="card-content">
+			{{#with obj_solic }} 
+			<div class="row">
+				<div class="col s12 m6"	>						
+					<ul class="collection">
+					<li class="collection-item">
+				      <h5>Dados da Solicitação</h5>
+				    </li>
+					<li class="collection-item teal white-text">
+				      Contato 
+				      </li>	
+				      <li class="collection-item">Nome: {{nome_contato}}</li>
+					  <li class="collection-item">Email: {{email_contato_truncate}}</li>
+					  <li class="collection-item">Telefone: {{telefone_contato_truncate}}</li>
+				      <li class="collection-item teal white-text">
+				      Festa 
+				      </li>	
+				      <li class="collection-item">Quantidade de Convidados: {{festa_convidados}}</li>
+				      <li class="collection-item">Data da Festa: {{festa_data}} {{festa_hora}}</li>
+				      <li class="collection-item"><p class="title">Detalhes da festa:</p>
+						{{festa_detalhes}}
+				      </li>
+				           
+					{{#if procura_local }}
+					<li class="collection-item teal white-text">
+				      Local procurado 
+				      </li>		
+				       <li class="collection-item">
+				       	<p class="title" >Bairros desejados:</p>						
+				      	{{#each this.local_procurado_bairros }}	
+				      		{{this}}<br>
+				      	{{/each}}
+						</li>
+						{{#if local_procurado_observacoes}}
+				       <li class="collection-item"><p class="title" >Observações sobre o local:</p>
+				       	{{local_procurado_observacoes}}
+						</li>
+						{{/if}}
+				      {{/if}}
+				      {{#if tem_servicos}}
+						<li class="collection-item teal white-text">Serviços Procurados</li>
+					  {{/if}}
+						{{#if servicos_procurados_salgados}}
+				       <li class="collection-item"><h5>Salgados</h5>
+					       	{{#if servico_procurado_observacoes_salgados}}
+					           	<p class="title">Observações:</p>{{servico_procurado_observacoes_salgados}}
+					        {{/if}}   	
+						</li>
+						{{/if}}
+				      
+				      {{#if servicos_procurados_doces}}
+				       <li class="collection-item"><h5>Doces</h5>
+					       	{{#if servico_procurado_observacoes_doces}}
+					           	<p class="title">	Observações:</p>{{servico_procurado_observacoes_doces}}
+					        {{/if}}   	
+						</li>
+						{{/if}}
+
+
+				      {{#if servicos_procurados_bolo}}
+				       <li class="collection-item"><h5>Bolo</h5>
+					       	{{#if servico_procurado_observacoes_bolo}}
+					           	<p class="title">Observações:</p>{{servico_procurado_observacoes_bolo}}
+					        {{/if}}   	
+						</li>
+						{{/if}}	
+
+
+				      {{#if servicos_procurados_decoracao}}
+				       <li class="collection-item"><h5>Decoração</h5>
+					       	{{#if servico_procurado_observacoes_decoracao}}
+					           	<p class="title">Observações:</p>{{servico_procurado_observacoes_decoracao}}
+					        {{/if}}   	
+						</li>
+						{{/if}}
+				      {{#if servicos_procurados_animacao}}
+				       <li class="collection-item"><h5>Animação</h5>
+					       	{{#if servico_procurado_observacoes_animacao}}
+					           	<p class="title">Observações:</p>{{servico_procurado_observacoes_animacao}}
+					        {{/if}}   	
+						</li>
+						{{/if}}
+				      {{#if servicos_procurados_outros}}
+				       <li class="collection-item"><h5>Outros</h5>
+					       	{{#if servico_procurado_observacoes_outros_servicos}}
+					           	<p class="title">Observações:</p>{{servico_procurado_observacoes_outros_servicos}}
+					        {{/if}}   	
+						</li>
+						{{/if}}
+
+				    </ul>
+				</div>
+				<div class="col s12 m6"	>
+					<form id="formOrca" >	
+
+
+						<ul class="collection">
+							<li class="collection-item">
+						      <h5>Orçamento</h5>
+						    </li>
+							<input  id="orc_id_solic" name="orc_id_solic" type="hidden"    value="{{_id}}">	
+
+
+
+							{{#if procura_local }}
+							<li class="collection-item teal white-text">Local</li>
+							<li class="collection-item">
+								<label for="orc_local_valor">Valor(R$)</label>
+								<input  id="orc_local_valor" name="orc_local_valor" type="text"    value="{{orc_local_valor}}">
+							</li>
+							<li class="collection-item">
+								<label for="orc_local_duracao" >Duração(horas)</label>
+								<input type="number" id="orc_local_duracao" name="orc_local_duracao" min="1" max="12">
+							</li>
+							<li class="collection-item">
+						    	<label for="orc_local_detalhes">Detalhes</label>							  		
+								<textarea class="materialize-textarea" id="orc_local_detalhes" name="orc_local_detalhes" rows="10" ></textarea>
+							</li>	
+						    {{/if}}
+
+
+							{{#if servicos_procurados_salgados}}
+							<li class="collection-item teal white-text">Salgados</li>
+							<li class="collection-item">
+								<label for="orc_salgados_valor">Valor(R$)</label>
+								<input  id="orc_salgados_valor" name="orc_salgados_valor" type="text"    value="{{orc_local_valor}}">
+							</li>
+							<li class="collection-item">
+						    	<label for="orc_salgados_detalhes">Detalhes</label>							  		
+								<textarea class="materialize-textarea" id="orc_salgados_detalhes" name="orc_salgados_detalhes" rows="10" ></textarea>
+							</li>	
+							{{/if}}
+					      
+					      {{#if servicos_procurados_doces}}
+							<li class="collection-item teal white-text">Doces</li>
+							<li class="collection-item">
+								<label for="orc_doces_valor">Valor(R$)</label>
+								<input  id="orc_doces_valor" name="orc_doces_valor" type="text"    value="{{orc_doces_valor}}">
+							</li>
+							<li class="collection-item">
+						    	<label for="orc_doces_detalhes">Detalhes</label>							  		
+								<textarea class="materialize-textarea" id="orc_doces_detalhes" name="orc_doces_detalhes" rows="10" ></textarea>
+							</li>
+							{{/if}}
+
+
+					      {{#if servicos_procurados_bolo}}
+					       <li class="collection-item teal white-text">Bolo</li>
+							<li class="collection-item">
+								<label for="orc_bolo_valor">Valor(R$)</label>
+								<input  id="orc_bolo_valor" name="orc_doces_valor" type="text"    value="{{orc_doces_valor}}">
+							</li>
+							<li class="collection-item">
+						    	<label for="orc_doces_detalhes">Detalhes</label>							  		
+								<textarea class="materialize-textarea" id="orc_bolo_detalhes" name="orc_bolo_detalhes" rows="10" ></textarea>
+							</li>
+							{{/if}}	
+
+
+					      {{#if servicos_procurados_decoracao}}
+					       <li class="collection-item teal white-text">Decoração</li>
+							<li class="collection-item">
+								<label for="orc_decoracao_valor">Valor(R$)</label>
+								<input  id="orc_decoracao_valor" name="orc_decoracao_valor" type="text"    value="{{orc_decoracao_valor}}">
+							</li>
+							<li class="collection-item">
+						    	<label for="orc_decoracao_detalhes">Detalhes</label>							  		
+								<textarea class="materialize-textarea" id="orc_decoracao_detalhes" name="orc_decoracao_detalhes" rows="10" ></textarea>
+							</li>
+							{{/if}}
+					      {{#if servicos_procurados_animacao}}
+							<li class="collection-item teal white-text">Animação</li>
+							<li class="collection-item">
+								<label for="orc_animacao_valor">Valor(R$)</label>
+								<input  id="orc_animacao_valor" name="orc_local_valor" type="text"    value="{{orc_animacao_valor}}">
+							</li>
+							<li class="collection-item">
+								<label for="orc_animacao_duracao" >Duração(horas)</label>
+								<input type="number" id="orc_animacao_duracao" name="orc_animacao_duracao" min="1" max="12">
+							</li>
+							<li class="collection-item">
+						    	<label for="orc_animacao_detalhes">Detalhes</label>							  		
+								<textarea class="materialize-textarea" id="orc_animacao_detalhes" name="orc_animacao_detalhes" rows="10" ></textarea>
+							</li>
+							{{/if}}
+					      {{#if servicos_procurados_outros}}
+					      	<li class="collection-item teal white-text">Outros Serviços</li>
+							<li class="collection-item">
+								<label for="orc_outros_tipo">Tipo de serviço</label>
+								<input  id="orc_outros_tipo" name="orc_outros_tipo" type="text"    value="{{orc_outros_tipo}}">
+							</li>					      
+							<li class="collection-item">
+								<label for="orc_outros_valor">Valor(R$)</label>
+								<input  id="orc_outros_valor" name="orc_outros_valor" type="text"    value="{{orc_outros_valor}}">
+							</li>
+							<li class="collection-item">
+						    	<label for="orc_outros_detalhes">Detalhes</label>							  		
+								<textarea class="materialize-textarea" id="orc_outros_detalhes" name="orc_outros_detalhes" rows="10" ></textarea>
+							</li>
+							{{/if}}
+
+
+
+
+
+
+
+						</ul>
+							<div class=" card-action">
+								<button id="buttonEnviarOrcamento" class="btn waves-effect " type="submit" name="action">Enviar Orçamento
+				    				<i class="mdi-content-send right"></i>
+				  				</button>							
+					    	</div>
+						
+					</form>	
+				</div>
+			</div> 
+			{{/with}}
+		</div>	 
+	</div>		
+</template>
