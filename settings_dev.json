@@ -1,0 +1,16 @@
+{
+  "public" : {
+    "ga": {
+      "account":"UA-63308454-1",
+      "debug": true,
+      "trackInterests": true, 
+      "trackInPage": true 
+    },
+    "olark": {
+      "identity":"4210-402-10-8753"
+    },
+    "ROOT_URL" : "http://dev.superangels.com.br:8080",
+    "PORT": 8080 ,
+    "MONGO_URL" : "mongodb://localhost:27017/superangelsdev"
+  }
+}
